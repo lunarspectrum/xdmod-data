@@ -31,9 +31,9 @@ class DataWarehouse:
            If `xdmod_host` is not a string.
     """
 
-    def __init__(self, xdmod_host):
+    def __init__(self, xdmod_host,verify=True):
         self.__in_runtime_context = False
-        self.__http_requester = _HttpRequester(xdmod_host)
+        self.__http_requester = _HttpRequester(xdmod_host,verify=verify)
         self.__descriptors = _Descriptors(self.__http_requester)
 
     def __enter__(self):
